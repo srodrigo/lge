@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="lge" Database="">
+  <Project Name="build" Path="build/build.project" Active="Yes"/>
+  <Project Name="lge" Path="lge/lge.project" Active="No"/>
+  <Project Name="test" Path="test/test.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Project Name="main/main" ConfigName="Debug"/>
+      <Project Name="build" ConfigName="Debug"/>
+      <Project Name="lge" ConfigName="Debug"/>
+      <Project Name="test" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="no">
+      <Project Name="main/main" ConfigName="Release"/>
+      <Project Name="build" ConfigName="Release"/>
+      <Project Name="lge" ConfigName="Release"/>
+      <Project Name="test" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
