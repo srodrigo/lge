@@ -36,4 +36,12 @@ lib/*
 # Codelite
 ###################
 .codelite/
+projects/codelite/test/*
+projects/codelite/Makefile
+*.d
+*.mk
 
+###################
+# Doc
+###################
+doc/*
