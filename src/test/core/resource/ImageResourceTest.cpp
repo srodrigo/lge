@@ -13,5 +13,7 @@ TEST(TestImageResource_clone)
 	
 	lge::core::ImageResource* newInstance = image.clone();
 	CHECK(newInstance->getFilename().compare(image.getFilename()) == 0);
-	CHECK(newInstance->getResource() == image.getResource());
+	// As clone creates and loads from disc a new resource, its pointer must point
+	// to a different address.
+	CHECK(newInstance->getResource() != image.getResource());
 }

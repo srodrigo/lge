@@ -132,7 +132,9 @@ protected:
 	 * Sets the filename and the resource pointer to the parameters.
 	 * 
 	 * This constructor is intended to be used by subclasses when implementing
-	 * the {@link clone} method.
+	 * the {@link clone} method. In most cases, the used won't need to copy the
+	 * pointer address, as they would prefer allocating memory for a new resource,
+	 * but this way makes it more flexible and gives another choice.
 	 * 
 	 * @param filename Complete resource location
 	 * @param resource Resource pointer

@@ -25,7 +25,10 @@ ImageResource::~ImageResource()
 
 ImageResource* ImageResource::clone() const
 {
-	return new ImageResource(getFilename(), getResource());
+	ImageResource* newInstance = new ImageResource(getFilename());
+	// Force to create and load a new resource
+	newInstance->load();
+	return newInstance;
 }
 
 bool ImageResource::load()
