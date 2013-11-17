@@ -2,6 +2,7 @@
 #define _LGE_GAME_H_
 
 #include <string>
+
 #include <SFML/Graphics.hpp>
 
 namespace lge
@@ -29,8 +30,8 @@ private:
 
 };
 
-}
+} // namespace
 
-}
+} // namespace
 
-#endif // _LGE_GAME_H_
+#endif

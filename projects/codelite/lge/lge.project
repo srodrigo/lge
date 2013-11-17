@@ -95,7 +95,19 @@
   <VirtualDirectory Name="core">
     <File Name="../../../src/lge/core/Game.cpp"/>
     <File Name="../../../src/lge/core/Game.h"/>
+    <VirtualDirectory Name="resource">
+      <File Name="../../../src/lge/core/resource/ResourceLoader.h"/>
+      <File Name="../../../src/lge/core/resource/Resource.h"/>
+      <File Name="../../../src/lge/core/resource/ImageResource.h"/>
+      <File Name="../../../src/lge/core/resource/ImageResource.cpp"/>
+      <File Name="../../../src/lge/core/resource/ResourceLoader.cpp"/>
+      <File Name="../../../src/lge/core/resource/IResource.h"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
+  <VirtualDirectory Name="util">
+    <File Name="../../../src/lge/util/StringUtil.h.cpp"/>
+    <File Name="../../../src/lge/util/StringUtil.h"/>
+  </VirtualDirectory>
 </CodeLite_Project>

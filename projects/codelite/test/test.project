@@ -91,8 +91,13 @@
   </Settings>
   <VirtualDirectory Name="test">
     <File Name="../../../src/test/test.h"/>
+    <File Name="../../../src/test/test.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="core">
     <File Name="../../../src/test/core/GameTest.cpp"/>
+    <VirtualDirectory Name="resource">
+      <File Name="../../../src/test/core/resource/ResourceLoaderTest.cpp"/>
+      <File Name="../../../src/test/core/resource/ImageResourceTest.cpp"/>
+    </VirtualDirectory>
   </VirtualDirectory>
 </CodeLite_Project>

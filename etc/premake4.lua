@@ -57,3 +57,6 @@ solution ("lgeall")
 		links {lge}
 		links {libunittest}
 
+		for _,sfmllib in pairs(all_sfml_libs) do libdirs { os.findlib(sfmllib) } end
+		links(all_sfml_libs)
+

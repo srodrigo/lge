@@ -41,7 +41,6 @@ const std::string& Game::getName() const {
 	return name;
 }
 
-}
+} // namespace
 
-}
-
+} // namespace

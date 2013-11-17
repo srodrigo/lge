@@ -44,6 +44,7 @@
       <CustomBuild Enabled="yes">
         <Target Name="run">cd ../../etc/ &amp;&amp; ./run.sh</Target>
         <Target Name="clean">cd ../../etc/ &amp;&amp; ./build.sh clean</Target>
+        <Target Name="build and run">cd ../../etc/ &amp;&amp; ./build.sh all &amp;&amp; ./run.sh</Target>
         <Target Name="build all">cd ../../etc/ &amp;&amp; ./build.sh all</Target>
         <RebuildCommand/>
         <CleanCommand/>
@@ -85,6 +86,7 @@
       <CustomBuild Enabled="yes">
         <Target Name="run">cd ../../etc/ &amp;&amp; ./run.sh --config=Release</Target>
         <Target Name="clean">cd ../../etc/ &amp;&amp; ./build.sh clean --config=Release</Target>
+        <Target Name="build and run">cd ../../etc/ &amp;&amp; ./build.sh all &amp;&amp; ./run.sh</Target>
         <Target Name="build all">cd ../../etc/ &amp;&amp; ./build.sh all --config=Release</Target>
         <RebuildCommand/>
         <CleanCommand/>
