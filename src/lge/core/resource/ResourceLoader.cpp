@@ -3,9 +3,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 ResourceLoader::ResourceLoader()
 {
 }
@@ -23,7 +20,5 @@ ResourceLoader::~ResourceLoader()
 		printf("Released %d resources not released manually\n", released);
 	}
 }
-
-} // namespace
 
 } // namespace

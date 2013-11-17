@@ -10,9 +10,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 /**
  * @brief Resource Loader for custom resources
  * 
@@ -154,8 +151,6 @@ private:
 	ResourceContainer resources;
 	
 };
-
-} // namespace
 
 } // namespace
 

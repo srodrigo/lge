@@ -5,9 +5,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 ImageResource::ImageResource(const std::string& filename)
 			: Resource(filename)
 {
@@ -40,7 +37,5 @@ bool ImageResource::load()
 	printf("Loading ImageResource \"%s\"\n", getFilename().c_str());
 	return getResource()->loadFromFile(getFilename());
 }
-
-} // namespace
 
 } // namespace

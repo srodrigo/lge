@@ -10,9 +10,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 /**
  * @brief Generic resource wrapper
  * 
@@ -167,8 +164,6 @@ private:
 	T* resource;
 	
 };
-
-} // namespace
 
 } // namespace
 

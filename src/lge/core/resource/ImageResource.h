@@ -8,9 +8,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 /**
  * @brief SFML Image resource wrapper
  * 
@@ -41,8 +38,6 @@ protected:
 	ImageResource(const std::string& filename, sf::Image* const resource);
 
 };
-
-} // namespace
 
 } // namespace
 

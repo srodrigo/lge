@@ -8,9 +8,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 class Game
 {
 public:
@@ -29,8 +26,6 @@ private:
 	sf::RenderWindow window;
 
 };
-
-} // namespace
 
 } // namespace
 

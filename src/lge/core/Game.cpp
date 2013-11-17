@@ -3,9 +3,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 const std::string Game::DEFAULT_NAME = "Lightweight Game Engine";
 
 Game::Game()
@@ -40,7 +37,5 @@ void Game::setName(const std::string& name) {
 const std::string& Game::getName() const {
 	return name;
 }
-
-} // namespace
 
 } // namespace

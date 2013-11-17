@@ -4,9 +4,6 @@
 namespace lge
 {
 
-namespace core
-{
-
 /**
  * @brief Resources Interface
  * 
@@ -25,8 +22,6 @@ protected:
 	IResource() {}
 	
 };
-
-} // namespace
 
 } // namespace
 
