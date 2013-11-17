@@ -65,7 +65,7 @@ public:
 		if (iter != resources.end()) {
 			iter->second.count++;
 			printf("%p, %d\n", iter->second.ptr, iter->second.count);
-			return static_cast<T*>(iter->second.ptr);
+			return dynamic_cast<T*>(iter->second.ptr);
 		}
 		
 		// Resource not found, create a new one
@@ -73,13 +73,11 @@ public:
 		if (resource->load()) {
 			printf("Inserting resource into memory\n");
 			resources.insert(std::make_pair(hash, ResourceEntry(resource, 1)));
+			return resource;
 		}
-		else {
-			printf("Load failed. Removing resource\n");
-			delete resource;
-			resource = NULL;
-		}
-		return resource;
+		printf("Load failed. Removing resource\n");
+		delete resource;
+		return NULL;
 	}
 	
 	/**
