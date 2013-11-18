@@ -1,7 +1,7 @@
 #ifndef _LGE_RESOURCE_LOADER_H_
 #define _LGE_RESOURCE_LOADER_H_
 
-#include "Resource.h"
+#include "lge/core/resource/Resource.h"
 
 #include <stdio.h>
 #include <string>

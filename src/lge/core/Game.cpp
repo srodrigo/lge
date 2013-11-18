@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "lge/core/Game.h"
 
 namespace lge
 {

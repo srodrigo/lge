@@ -1,7 +1,7 @@
 #ifndef _LGE_IMAGE_RESOURCE_H_
 #define _LGE_IMAGE_RESOURCE_H_
 
-#include "Resource.h"
+#include "lge/core/resource/Resource.h"
 
 #include <SFML/Graphics/Image.hpp>
 

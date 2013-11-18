@@ -7,14 +7,14 @@ test = "test"
 base_dir = ".."
 
 -- src dirs
-src_dir = base_dir .. "/src"
-lge_src_dir = src_dir .. "/lge"
-test_src_dir = src_dir .. "/test"
+src_dir = base_dir .. "/src/"
+lge_src_dir = src_dir .. "/lge/"
+test_src_dir = src_dir .. "/test/"
 
 -- generated dirs
-lib_dir = base_dir .. "/lib"
-build_dir = base_dir .. "/build"
-bin_dir = base_dir .. "/bin"
+lib_dir = base_dir .. "/lib/"
+build_dir = base_dir .. "/build/"
+bin_dir = base_dir .. "/bin/"
 
 -- libs
 liblge = "liblge.so"
@@ -23,18 +23,18 @@ libunittest = "UnitTest++"
 
 solution ("lgeall")
 	location (build_dir)
-    --includedirs { src_dir }
+    includedirs { src_dir }
 
 	configurations { "Debug", "Release" }
    
 	configuration { "Debug" }
-	    targetdir (bin_dir .. "/Debug")
+	    targetdir (bin_dir .. "Debug")
  
  	configuration { "Release" }
-		targetdir (bin_dir .. "/Release")
+		targetdir (bin_dir .. "Release")
  
 	if _ACTION == "clean" then
-		os.rmdir(lib_dir .. "/" .. liblge)
+		os.rmdir(lib_dir .. liblge)
 		os.rmdir(build_dir)
 		os.rmdir(bin_dir)
 	end
@@ -42,7 +42,7 @@ solution ("lgeall")
 	project (lge)
 		kind "SharedLib"
 		language "C++"
-		files { lge_src_dir .. "/**.h", lge_src_dir .. "/**.cpp" }
+		files { lge_src_dir .. "**.h", lge_src_dir .. "**.cpp" }
 		targetdir (lib_dir)
 
 		for _,sfmllib in pairs(all_sfml_libs) do libdirs { os.findlib(sfmllib) } end
@@ -51,7 +51,7 @@ solution ("lgeall")
 	project (test)
 		kind "ConsoleApp"
 		language "C++"
-		files { test_src_dir .. "/**.h", test_src_dir .. "/**.cpp" }
+		files { test_src_dir .. "**.h", test_src_dir .. "**.cpp" }
 		
 		libdirs { os.findlib(libunittest) }
 		links {lge}

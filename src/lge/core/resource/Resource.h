@@ -1,11 +1,12 @@
 #ifndef _LGE_RESOURCE_H_
 #define _LGE_RESOURCE_H_
 
-#include "IResource.h"
-#include "../../util/StringUtil.h"
+#include "lge/core/resource/IResource.h"
 
 #include <string>
 #include <stdio.h>
+
+#include "lge/util/StringUtil.h"
 
 namespace lge
 {

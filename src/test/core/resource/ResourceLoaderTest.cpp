@@ -1,4 +1,7 @@
-#include "../../test.h"
+#include "test/test.h"
+
+#include "lge/core/resource/ResourceLoader.h"
+#include "lge/core/resource/ImageResource.h"
 
 TEST(TestResourceLoader_Load)
 {

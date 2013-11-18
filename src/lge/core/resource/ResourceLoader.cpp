@@ -1,4 +1,4 @@
-#include "ResourceLoader.h"
+#include "lge/core/resource/ResourceLoader.h"
 
 namespace lge
 {

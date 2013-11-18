@@ -1,4 +1,4 @@
-#include "ImageResource.h"
+#include "lge/core/resource/ImageResource.h"
 
 #include <stdio.h>
 
