@@ -60,8 +60,8 @@ public:
 		int hash = Resource<T>::hash(filename);
 		ResourceContainer::iterator iter = resources.find(hash);
 		if (iter != resources.end()) {
-			iter->second.count++;
-			printf("%p, %d\n", iter->second.ptr, iter->second.count);
+			iter->second.usages++;
+			printf("%p, %d\n", iter->second.ptr, iter->second.usages);
 			return dynamic_cast<T*>(iter->second.ptr);
 		}
 		
@@ -100,9 +100,9 @@ public:
 		if (iter != resources.end()) {
 			printf("Decrementing count for resource \"%s\"\n",
 					resource->getFilename().c_str());
-			iter->second.count--;
+			iter->second.usages--;
 			// Only deallocate resources not used anywhere else
-			if (iter->second.count == 0) {
+			if (iter->second.usages == 0) {
 				printf("Removing resource \"%s\", resource from memory\n",
 						resource->getFilename().c_str());
 				delete iter->second.ptr;
@@ -124,24 +124,24 @@ public:
 	 * @return Number of pointers using the resource
 	 */
 	template<typename T>
-	int countResources(const T& resource) const
+	int currentUsages(const T& resource) const
 	{
 		int hash = Resource<T>::hash(resource->getFilename());
 		ResourceContainer::const_iterator iter = resources.find(hash);
 		if (iter == resources.end()) {
 			return 0;
 		}
-		return iter->second.count;
+		return iter->second.usages;
 	}
 	
 private:
 	struct ResourceEntry
 	{
 		IResource* ptr;
-		int count;
+		int usages;
 		
-		ResourceEntry(IResource* const ptr, int count)
-				: ptr(ptr), count(count)
+		ResourceEntry(IResource* const ptr, int usages)
+				: ptr(ptr), usages(usages)
 		{
 		}
 	};
