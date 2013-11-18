@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#
+# Copyright (C) 2013 Sergio Rodrigo
+#
+# This software may be modified and distributed under the terms
+# of the MIT license. See the LICENSE file for details.
+#
+
 debug_config="config=Debug"
 release_config="config=Release"
 if [ $# = 0 ]; then
