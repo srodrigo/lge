@@ -35,9 +35,11 @@ solution ("lgeall")
    
 	configuration { "Debug" }
 	    targetdir (bin_dir .. "Debug")
+		flags { "Symbols", "ExtraWarnings", "FatalWarnings" }
  
  	configuration { "Release" }
 		targetdir (bin_dir .. "Release")
+		flags { "Optimize", "ExtraWarnings" }
  
 	if _ACTION == "clean" then
 		os.rmdir(lib_dir .. liblge)
