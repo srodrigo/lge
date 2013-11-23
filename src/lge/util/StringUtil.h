@@ -15,7 +15,18 @@ namespace lge
 
 namespace util
 {
-	int hash(const std::string& str);
+	
+/**
+ * @brief Hashcode for a string
+ * 
+ * Returns a hashcode for the string.
+ * 
+ * Returns 0 if the string is empty.
+ * 
+ * @param str String which hashcode is calculated
+ * @return Hashcode
+ */
+int hash(const std::string& str);
 
 } // namespace
 
