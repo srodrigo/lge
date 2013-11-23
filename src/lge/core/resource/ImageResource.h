@@ -28,7 +28,12 @@ class ImageResource : public Resource<sf::Image>
 {
 public:
 	explicit ImageResource(const std::string& filename);
+	
+	explicit ImageResource(const std::string& filename, bool releaseResource);
+	
 	virtual ~ImageResource();
+	
+	virtual ImageResource* clone() const;
 	
 	/**
 	 * @brief Loads a SFML Image
@@ -38,11 +43,11 @@ public:
 	 * @return true if the resource was loaded successfully; false otherwise
 	 */
 	virtual bool load();
-	
-	virtual ImageResource* clone() const;
-	
+		
 protected:
 	ImageResource(const std::string& filename, sf::Image* const resource);
+	
+	ImageResource& operator=(const ImageResource& res);
 
 };
 

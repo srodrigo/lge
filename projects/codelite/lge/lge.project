@@ -107,7 +107,11 @@
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
   <VirtualDirectory Name="util">
-    <File Name="../../../src/lge/util/StringUtil.h.cpp"/>
     <File Name="../../../src/lge/util/StringUtil.h"/>
+    <File Name="../../../src/lge/util/StringUtil.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="log">
+    <File Name="../../../src/lge/log/Logger.h"/>
+    <File Name="../../../src/lge/log/Logger.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

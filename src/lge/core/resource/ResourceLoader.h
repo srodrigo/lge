@@ -52,15 +52,15 @@ public:
 	 * is specified does not exist in the cache.
 	 * 
 	 * If the resource is currently in the cache, this method simply returns a
-	 * pointer to it.
+	 * reference to it.
 	 * 
-	 * A NULL pointer is returned if the resource couldn't be loaded from disk.
+	 * An 'empty' resource is returned if the resource couldn' be loaded from disk.
 	 * 
 	 * @param filename Complete resource location
-	 * @return Resource allocated; NULL if the load failed
+	 * @return Resource allocated; 'empty' resource if the load failed
 	 */
 	template<typename T>
-	const T* load(const std::string& filename)
+	T& load(const std::string& filename)
 	{
 		// Try to get the resource from the cache
 		printf("Loading resource \"%s\"\n", filename.c_str());
@@ -69,19 +69,16 @@ public:
 		if (iter != resources.end()) {
 			iter->second.usages++;
 			printf("%p, %d\n", iter->second.ptr, iter->second.usages);
-			return dynamic_cast<T*>(iter->second.ptr);
+			return *(dynamic_cast<T*>(iter->second.ptr));
 		}
 		
 		// Resource not found, create a new one
-		T* resource = new T(filename);
-		if (resource->load()) {
-			printf("Inserting resource into memory\n");
-			resources.insert(std::make_pair(hash, ResourceEntry(resource, 1)));
-			return resource;
+		T* resource = new T(filename, false);
+		resources.insert(std::make_pair(hash, ResourceEntry(resource, 1)));
+		if (!resource->load()) {
+			printf("Load failed\n");
 		}
-		printf("Load failed. Removing resource\n");
-		delete resource;
-		return NULL;
+		return *resource;
 	}
 	
 	/**
@@ -102,23 +99,24 @@ public:
 	template<typename T>
 	bool release(const T& resource)
 	{
-		int hash = Resource<T>::hash(resource->getFilename());
+		int hash = Resource<T>::hash(resource.getFilename());
 		ResourceContainer::iterator iter = resources.find(hash);
 		if (iter != resources.end()) {
 			printf("Decrementing count for resource \"%s\"\n",
-					resource->getFilename().c_str());
+					resource.getFilename().c_str());
 			iter->second.usages--;
 			// Only deallocate resources not used anywhere else
 			if (iter->second.usages == 0) {
-				printf("Removing resource \"%s\", resource from memory\n",
-						resource->getFilename().c_str());
+				printf("Removing resource \"%s\" from memory\n",
+						resource.getFilename().c_str());
+				iter->second.ptr->release();
 				delete iter->second.ptr;
 				resources.erase(iter);
 			}
 			return true;
 		}
 		printf("Could not remove resource \"%s\", resource not in memory\n",
-				resource->getFilename().c_str());
+				resource.getFilename().c_str());
 		return false;
 	}
 	
@@ -133,7 +131,7 @@ public:
 	template<typename T>
 	int currentUsages(const T& resource) const
 	{
-		int hash = Resource<T>::hash(resource->getFilename());
+		int hash = Resource<T>::hash(resource.getFilename());
 		ResourceContainer::const_iterator iter = resources.find(hash);
 		if (iter == resources.end()) {
 			return 0;

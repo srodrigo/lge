@@ -100,4 +100,7 @@
       <File Name="../../../src/test/core/resource/ImageResourceTest.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
+  <VirtualDirectory Name="util">
+    <File Name="../../../src/test/util/StringUtilTest.cpp"/>
+  </VirtualDirectory>
 </CodeLite_Project>

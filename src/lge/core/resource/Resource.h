@@ -57,36 +57,67 @@ public:
 	 * @param filename Complete resource location
 	 */
 	explicit Resource(const std::string& filename)
-			: filename(filename), resource(NULL)
+			: filename(filename), resource(NULL), autoreleaseResource(true)
+	{
+	}
+	
+	/**
+	 * @brief Constructor
+	 * 
+	 * Sets the filename and the auto release flag to the parameters.
+	 * 
+	 * The autorelaseResource Flag indicates whether the memory allocated for
+	 * the resource should be reeased on destruction.
+	 * 
+	 * @param filename Complete resource location
+	 * @param autoreleaseResource Whether the resource memory should be released
+	 * on destruction.
+	 * 
+	 * @see {@link #Resource(const std::string&)}
+	 */
+	Resource(const std::string& filename, bool autoreleaseResource)
+			: filename(filename), resource(NULL), autoreleaseResource(autoreleaseResource)
 	{
 	}
 	
 	/**
 	 * @brief Virtual destructor
 	 * 
-	 * Frees the resource memory if allocated and sets the pointer to NULL.
+	 * Releases the resource memory if autorelease resource is set.
 	 */
 	virtual ~Resource()
+	{
+		if (autoreleaseResource) {
+			release();
+		}
+	}
+	
+	virtual Resource* clone() const = 0;
+	
+	/**
+	 * @brief Release resource
+	 * 
+	 * Releases the resource memory if allocated and sets the pointer to NULL.
+	 */
+	virtual void release()
 	{
 		if (resource) {
 			printf("Removing resource pointer %p\n", resource);
 			delete resource;
 			resource = NULL;
+			printf("Resource pointer %p removed\n", resource);
 		}
 	}
-	
+
 	/**
-	 * @brief Clone the object
+	 * @brief Load the resource
 	 * 
-	 * Clones the current instance. This should include creating and allocating
-	 * a new physical resource.
+	 * Loads the resource which filename was set on the constructor. Should use
+	 * the {@link #setResource(T*)} method to set the allocated object.
 	 * 
-	 * The purpose of this method is to provide a safe way of copying objects, as
-	 * both copy and assignment constructors are private to avoid problems.
-	 * 
-	 * @return New instance with exactly the same information as the current one
+	 * @return true if the resource was loaded successfully; false otherwise
 	 */
-	 virtual Resource* clone() const = 0;
+	virtual bool load() = 0;
 
 	/**
 	 * @brief Hashcode of a filename
@@ -100,16 +131,6 @@ public:
 	{
 		return lge::util::hash(filename);
 	}
-	
-	/**
-	 * @brief Load the resource
-	 * 
-	 * Loads the resource which filename was set on the constructor. Should use
-	 * the {@link #setResource(T*)} method.
-	 * 
-	 * @return true if the resource was loaded successfully; false otherwise
-	 */
-	virtual bool load() = 0;
 	
 	/**
 	 * @brief Get the filename
@@ -131,25 +152,6 @@ public:
 	}
 	
 protected:
-	/**
-	 * @brief Constructor
-	 * 
-	 * Sets the filename and the resource pointer to the parameters.
-	 * 
-	 * This constructor is intended to be used by subclasses when implementing
-	 * the {@link clone} method. In most cases, the used won't need to copy the
-	 * pointer address, as they would prefer allocating memory for a new resource,
-	 * but this way makes it more flexible and gives another choice.
-	 * 
-	 * @param filename Complete resource location
-	 * @param resource Resource pointer
-	 * 
-	 * @see {@link #Resource(const std::string&)}
-	 */
-	Resource(const std::string& filename, T* const resource)
-			: filename(filename), resource(resource)
-	{
-	}
 	
 	/**
 	 * @brief Set the resource pointer
@@ -165,11 +167,10 @@ protected:
 	}
 	
 private:
-	Resource(const Resource& resource);
-	Resource& operator=(const Resource&); 
-
 	std::string filename;
+	
 	T* resource;
+	bool autoreleaseResource;
 	
 };
 

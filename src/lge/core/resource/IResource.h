@@ -24,6 +24,36 @@ class IResource
 {
 public:
 	virtual ~IResource() {}
+	
+	/**
+	 * @brief Clone the object
+	 * 
+	 * Clones the current instance. This should include creating and allocating
+	 * a new physical resource.
+	 * 
+	 * The purpose of this method is to provide a safe way of copying objects, as
+	 * both copy and assignment constructors are private to avoid problems.
+	 * 
+	 * @return New instance with exactly the same information as the current one
+	 */
+	virtual IResource* clone() const = 0;
+		
+	/**
+	 * @brief Release resource
+	 * 
+	 * Should release the resource memory and leave it in a consistent state.
+	 */
+	virtual void release() = 0;
+	
+	/**
+	 * @brief Load the resource
+	 * 
+	 * Loads the resource which filename was set on the constructor. Should
+	 * allocate memory for the resource if it's not already allocated.
+	 * 
+	 * @return true if the resource was loaded successfully; false otherwise
+	 */
+	virtual bool load() = 0;
 
 protected:
 	IResource() {}

@@ -18,6 +18,7 @@ ResourceLoader::~ResourceLoader()
 {
 	int released = 0;
 	for (ResourceContainer::iterator iter = resources.begin(); iter != resources.end(); iter++) {
+		iter->second.ptr->release();
 		delete iter->second.ptr;
 		resources.erase(iter);
 		released++;

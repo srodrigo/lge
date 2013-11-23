@@ -22,6 +22,11 @@ ImageResource::ImageResource(const std::string& filename, sf::Image* const resou
 {
 }
 
+ImageResource::ImageResource(const std::string& filename, bool releaseResource)
+		: Resource(filename, releaseResource)
+{
+}
+
 ImageResource::~ImageResource()
 {
 	printf("~ImageResource()\n");
@@ -29,9 +34,12 @@ ImageResource::~ImageResource()
 
 ImageResource* ImageResource::clone() const
 {
+	printf("Cloning ImageResource\n");
 	ImageResource* newInstance = new ImageResource(getFilename());
-	// Force to create and load a new resource
-	newInstance->load();
+	if (getResource() != NULL) {
+		// Force to create and load a new resource
+		newInstance->load();
+	}
 	return newInstance;
 }
 
@@ -41,6 +49,7 @@ bool ImageResource::load()
 		printf("Creating ImageResource\n");
 		setResource(new sf::Image());
 	}
+	
 	printf("Loading ImageResource \"%s\"\n", getFilename().c_str());
 	return getResource()->loadFromFile(getFilename());
 }
