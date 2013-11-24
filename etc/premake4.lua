@@ -30,6 +30,7 @@ libunittest = "UnitTest++"
 solution ("lgeall")
 	location (build_dir)
     includedirs { src_dir }
+	buildoptions { "-DCONFIGFILE='\"../../etc/logger.config\"'" }
 
 	configurations { "Debug", "Release" }
    

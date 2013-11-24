@@ -111,7 +111,7 @@
     <File Name="../../../src/lge/util/StringUtil.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="log">
-    <File Name="../../../src/lge/log/Logger.h"/>
-    <File Name="../../../src/lge/log/Logger.cpp"/>
+    <File Name="../../../src/lge/log/logger.h"/>
+    <File Name="../../../src/lge/log/logger.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

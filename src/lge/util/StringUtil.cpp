@@ -8,6 +8,8 @@
 #include "lge/util/StringUtil.h"
 
 #include <stdio.h>
+#include <sstream>
+#include <algorithm>
 
 namespace lge
 {
@@ -26,7 +28,30 @@ int hash(const std::string& str)
 	return hash;
 }
 
-} // namespace
+std::vector<std::string>& split(const std::string &str, char delim,
+		std::vector<std::string>& tokens)
+{
+    std::stringstream stream(str);
+    std::string item;
+    while (std::getline(stream, item, delim)) {
+        tokens.push_back(item);
+    }
+	
+    return tokens;
+}
+
+std::string& toLowerCase(const std::string& str, std::string& out)
+{
+	std::transform(str.begin(), str.end(), out.begin(), ::tolower);
+	return out;
+}
+
+std::string& toUpperCase(const std::string& str, std::string& out)
+{
+	std::transform(str.begin(), str.end(), out.begin(), ::toupper);
+	return out;
+}
 
 } // namespace
 
+} // namespace

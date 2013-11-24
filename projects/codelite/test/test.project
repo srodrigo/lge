@@ -98,6 +98,7 @@
     <VirtualDirectory Name="resource">
       <File Name="../../../src/test/core/resource/ResourceLoaderTest.cpp"/>
       <File Name="../../../src/test/core/resource/ImageResourceTest.cpp"/>
+      <File Name="../../../src/test/log/loggerTest.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="util">
