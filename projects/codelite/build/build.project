@@ -11,6 +11,7 @@
     <File Name="../../../etc/run.sh"/>
     <File Name="../../../etc/build.sh"/>
     <File Name="../../../etc/premake4.lua"/>
+    <File Name="../../../etc/logger.config"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

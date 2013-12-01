@@ -38,12 +38,13 @@ const char* FILE_HANDLER = "file";
 
 enum Level
 {
-	DEBUG = 0, INFO, WARN, ERROR
+	FINEST = 0, DEBUG, INFO, WARN, ERROR
 };
 
 std::map<Level, const char*> initLevels()
 {
 	std::map<Level, const char*> map;
+	map[FINEST] = "FINEST";
 	map[DEBUG] = "DEBUG";
 	map[INFO] = "INFO";
 	map[WARN] = "WARN";
@@ -229,6 +230,15 @@ void log(Level level, const char* module, const char* message)
 					message << "\n";
 		}
 	}
+}
+
+void finest(const char* module, const char* message, ...)
+{	
+	va_list args;
+	va_start(args, message);
+	vsprintf(formatBuffer, message, args);
+	log(FINEST, module, formatBuffer);
+	va_end(args);
 }
 
 void debug(const char* module, const char* message, ...)

@@ -14,6 +14,8 @@ namespace lge
 namespace log
 {
 
+void finest(const char* module, const char* message, ...);
+
 void debug(const char* module, const char* message, ...);
 
 void info(const char* module, const char* message, ...);

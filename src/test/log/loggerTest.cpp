@@ -13,6 +13,7 @@ TEST(TestLogger_Debug)
 {
 	lge::log::debug("loggerTest", "*** TestLogger_debug ***");
 	
+	lge::log::finest("loggerTest", "finest test message");
 	lge::log::debug("loggerTest", "debug test message");
 	lge::log::info("loggerTest", "info test message");
 	lge::log::warn("loggerTest", "warn test message");
