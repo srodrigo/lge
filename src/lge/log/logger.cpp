@@ -8,6 +8,7 @@
 #include "lge/log/logger.h"
 
 #include <stdio.h>
+#include <stdarg.h>
 #include <time.h>
 #include <map>
 #include <vector>
@@ -205,6 +206,9 @@ void init()
 const int TIME_BUFFER_SIZE = 20;
 char timeBuffer[TIME_BUFFER_SIZE];
 
+const int FORMAT_BUFFER_SIZE = 2000;
+char formatBuffer[FORMAT_BUFFER_SIZE];
+
 void log(Level level, const char* module, const char* message)
 {
 	if (!initialized) {
@@ -227,24 +231,40 @@ void log(Level level, const char* module, const char* message)
 	}
 }
 
-void debug(const char* module, const char* message)
-{
-	log(DEBUG, module, message);
+void debug(const char* module, const char* message, ...)
+{	
+	va_list args;
+	va_start(args, message);
+	vsprintf(formatBuffer, message, args);
+	log(DEBUG, module, formatBuffer);
+	va_end(args);
 }
 
-void info(const char* module, const char* message)
+void info(const char* module, const char* message, ...)
 {
-	log(INFO, module, message);
+	va_list args;
+	va_start(args, message);
+	vsprintf(formatBuffer, message, args);
+	log(INFO, module, formatBuffer);
+	va_end(args);
 }
 
-void warn(const char* module, const char* message)
+void warn(const char* module, const char* message, ...)
 {
-	log(WARN, module, message);
+	va_list args;
+	va_start(args, message);
+	vsprintf(formatBuffer, message, args);
+	log(WARN, module, formatBuffer);
+	va_end(args);
 }
 
-void error(const char* module, const char* message)
+void error(const char* module, const char* message, ...)
 {
-	log(ERROR, module, message);
+	va_list args;
+	va_start(args, message);
+	vsprintf(formatBuffer, message, args);
+	log(ERROR, module, formatBuffer);
+	va_end(args);
 }
 
 } // namespace

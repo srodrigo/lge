@@ -14,13 +14,13 @@ namespace lge
 namespace log
 {
 
-void debug(const char* module, const char* message);
+void debug(const char* module, const char* message, ...);
 
-void info(const char* module, const char* message);
+void info(const char* module, const char* message, ...);
 
-void warn(const char* module, const char* message);
+void warn(const char* module, const char* message, ...);
 
-void error(const char* module, const char* message);
+void error(const char* module, const char* message, ...);
 
 } // namespace
 
