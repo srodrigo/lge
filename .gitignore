@@ -41,6 +41,7 @@ projects/codelite/test/*
 projects/codelite/Makefile
 *.d
 *.mk
+*.list
 
 ###################
 # Doc
