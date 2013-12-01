@@ -103,6 +103,12 @@
       <File Name="../../../src/lge/core/resource/ResourceLoader.cpp"/>
       <File Name="../../../src/lge/core/resource/IResource.h"/>
     </VirtualDirectory>
+    <VirtualDirectory Name="scene">
+      <File Name="../../../src/lge/core/scene/Scene.h"/>
+      <File Name="../../../src/lge/core/scene/Scene.cpp"/>
+      <File Name="../../../src/lge/core/scene/SceneNode.h"/>
+      <File Name="../../../src/lge/core/scene/SceneNode.cpp"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
