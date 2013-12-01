@@ -14,6 +14,8 @@
 #include <string>
 #include <map>
 
+#include "lge/log/logger.h"
+
 namespace lge
 {
 
@@ -63,12 +65,12 @@ public:
 	T& load(const std::string& filename)
 	{
 		// Try to get the resource from the cache
-		printf("Loading resource \"%s\"\n", filename.c_str());
+		lge::log::debug("ResourceLoader::load", "Loading resource \"%s\"", filename.c_str());
 		int hash = Resource<T>::hash(filename);
 		ResourceContainer::iterator iter = resources.find(hash);
 		if (iter != resources.end()) {
 			iter->second.usages++;
-			printf("%p, %d\n", iter->second.ptr, iter->second.usages);
+			lge::log::debug("ResourceLoader::load", "%p, %d", iter->second.ptr, iter->second.usages);
 			return *(dynamic_cast<T*>(iter->second.ptr));
 		}
 		
@@ -76,7 +78,7 @@ public:
 		T* resource = new T(filename, false);
 		resources.insert(std::make_pair(hash, ResourceEntry(resource, 1)));
 		if (!resource->load()) {
-			printf("Load failed\n");
+			lge::log::warn("ResourceLoader::load", "Load failed");
 		}
 		return *resource;
 	}
@@ -102,12 +104,14 @@ public:
 		int hash = Resource<T>::hash(resource.getFilename());
 		ResourceContainer::iterator iter = resources.find(hash);
 		if (iter != resources.end()) {
-			printf("Decrementing count for resource \"%s\"\n",
+			lge::log::debug("ResourceLoader::release",
+					"Decrementing count for resource \"%s\"",
 					resource.getFilename().c_str());
 			iter->second.usages--;
 			// Only deallocate resources not used anywhere else
 			if (iter->second.usages == 0) {
-				printf("Removing resource \"%s\" from memory\n",
+				lge::log::debug("ResourceLoader::release",
+						"Removing resource \"%s\" from memory",
 						resource.getFilename().c_str());
 				iter->second.ptr->release();
 				delete iter->second.ptr;
@@ -115,7 +119,8 @@ public:
 			}
 			return true;
 		}
-		printf("Could not remove resource \"%s\", resource not in memory\n",
+		lge::log::warn("ResourceLoader::release",
+				"Could not remove resource \"%s\", resource not in memory",
 				resource.getFilename().c_str());
 		return false;
 	}

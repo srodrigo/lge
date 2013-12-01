@@ -9,6 +9,8 @@
 
 #include <stdio.h>
 
+#include "lge/log/logger.h"
+
 namespace lge
 {
 
@@ -29,12 +31,12 @@ ImageResource::ImageResource(const std::string& filename, bool releaseResource)
 
 ImageResource::~ImageResource()
 {
-	printf("~ImageResource()\n");
+	lge::log::debug("ImageResource::~ImageResource", "Destroying ImageResource");
 }
 
 ImageResource* ImageResource::clone() const
 {
-	printf("Cloning ImageResource\n");
+	lge::log::debug("ImageResource::clone", "Cloning ImageResource");
 	ImageResource* newInstance = new ImageResource(getFilename());
 	if (getResource() != NULL) {
 		// Force to create and load a new resource
@@ -46,11 +48,11 @@ ImageResource* ImageResource::clone() const
 bool ImageResource::load()
 {
 	if (getResource() == NULL) {
-		printf("Creating ImageResource\n");
+		lge::log::debug("ImageResource::load", "Creating ImageResource");
 		setResource(new sf::Image());
 	}
 	
-	printf("Loading ImageResource \"%s\"\n", getFilename().c_str());
+	lge::log::debug("ImageResource::load", "Loading ImageResource \"%s\"\n", getFilename().c_str());
 	return getResource()->loadFromFile(getFilename());
 }
 

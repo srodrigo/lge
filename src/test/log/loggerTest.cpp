@@ -7,16 +7,14 @@
 
 #include "test/test.h"
 
-#include <stdio.h>
-
 #include "lge/log/logger.h"
 
-TEST(TestLogger_debug)
+TEST(TestLogger_Debug)
 {
-	printf("\n*** TestLogger_debug ***\n");
+	lge::log::debug("loggerTest", "*** TestLogger_debug ***");
 	
-	lge::log::debug("debug test module", "debug test message");
-	lge::log::info("info test module", "info test message");
-	lge::log::warn("warn test module", "warn test message");
-	lge::log::error("error test module", "error test message");
+	lge::log::debug("loggerTest", "debug test message");
+	lge::log::info("loggerTest", "info test message");
+	lge::log::warn("loggerTest", "warn test message");
+	lge::log::error("loggerTest", "error test message");
 }

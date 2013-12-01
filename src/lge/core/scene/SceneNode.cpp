@@ -22,25 +22,25 @@ SceneNode::~SceneNode()
 	
 void SceneNode::addChild(SceneNode* child)
 {
-	lge::log::debug("SceneNode#addChild", "Adding child");
+	lge::log::debug("SceneNode::addChild", "Adding child");
 	
 	children.push_back(child);
 }
 
 bool SceneNode::removeChild(SceneNode* child)
 {
-	lge::log::debug("SceneNode#removeChild", "Removing child");
+	lge::log::debug("SceneNode::removeChild", "Removing child");
 	
 	for (std::vector<SceneNode*>::iterator iter = children.begin();
 			iter != children.end();
 			++iter) {
 		if (*iter == child) {
 			children.erase(iter);
-			lge::log::debug("SceneNode#removeChild", "Child removed");
+			lge::log::debug("SceneNode::removeChild", "Child removed");
 			return true;
 		}
 	}
-	lge::log::warn("SceneNode#removeChild", "Child not found");
+	lge::log::warn("SceneNode::removeChild", "Child not found");
 	return false;
 }
 
@@ -51,7 +51,7 @@ int SceneNode::countChildren() const
 
 void SceneNode::update()
 {
-	lge::log::debug("SceneNode#update", "Updating children");
+	lge::log::debug("SceneNode::update", "Updating children");
 	
 	for (std::vector<SceneNode*>::iterator iter = children.begin();
 			iter != children.end();
@@ -59,12 +59,12 @@ void SceneNode::update()
 		(*iter)->update();
 	}
 	
-	lge::log::debug("SceneNode#update", "Updating node");
+	lge::log::debug("SceneNode::update", "Updating node");
 }
 
 void SceneNode::draw() const
 {
-	lge::log::debug("SceneNode#draw", "Drawing children");
+	lge::log::debug("SceneNode::draw", "Drawing children");
 	
 	for (std::vector<SceneNode*>::const_iterator iter = children.begin();
 			iter != children.end();
@@ -72,7 +72,7 @@ void SceneNode::draw() const
 		(*iter)->draw();
 	}
 	
-	lge::log::debug("SceneNode#draw", "Drawing node");
+	lge::log::debug("SceneNode::draw", "Drawing node");
 }
 
 } // namespace

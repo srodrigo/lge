@@ -13,7 +13,8 @@
 namespace lge
 {
 
-Scene::Scene() : rootNode(NULL)
+Scene::Scene()
+		: rootNode(NULL)
 {
 }
 
@@ -23,7 +24,7 @@ Scene::~Scene()
 
 void Scene::update()
 {
-	lge::log::debug("Scene#update", "Updating scene");
+	lge::log::debug("Scene::update", "Updating scene");
 	
 	if (rootNode) {
 		rootNode->update();
@@ -32,7 +33,7 @@ void Scene::update()
 
 void Scene::draw() const
 {
-	lge::log::debug("Scene#draw", "Drawing scene");
+	lge::log::debug("Scene::draw", "Drawing scene");
 	
 	if (rootNode) {
 		rootNode->draw();

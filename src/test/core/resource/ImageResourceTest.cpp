@@ -9,25 +9,25 @@
 
 #include "lge/core/resource/ImageResource.h"
 
-TEST(TestImageResource_load)
+TEST(TestImageResource_Load)
 {
-	printf("\n*** TestImageResource_load ***\n");
+	lge::log::debug("ImageResourceTest", "*** TestImageResource_Load ***");
 	
 	lge::ImageResource image(TEST_IMAGE_1);
 	CHECK(image.load());
 }
 
-TEST(TestImageResource_loadFail)
+TEST(TestImageResource_Load_fail)
 {
-	printf("\n*** TestImageResource_loadFail ***\n");
+	lge::log::debug("ImageResourceTest", "*** TestImageResource_Load_fail ***");
 	
 	lge::ImageResource image("");
 	CHECK(!image.load());
 }
 
-TEST(TestImageResource_clone)
+TEST(TestImageResource_Clone)
 {
-	printf("\n*** TestImageResource_clone ***\n");
+	lge::log::debug("ImageResourceTest", "*** TestImageResource_Clone ***");
 	
 	lge::ImageResource image(TEST_IMAGE_1);
 	
@@ -37,9 +37,9 @@ TEST(TestImageResource_clone)
 	CHECK(newInstance->getResource() == NULL);
 }
 
-TEST(TestImageResource_cloneAfterLoad)
+TEST(TestImageResource_Clone_afterLoad)
 {
-	printf("\n*** TestImageResource_cloneAfterLoad ***\n");
+	lge::log::debug("ImageResourceTest", "*** TestImageResource_Clone_afterLoad ***");
 	
 	lge::ImageResource image(TEST_IMAGE_1);
 	image.load();
@@ -55,9 +55,9 @@ TEST(TestImageResource_cloneAfterLoad)
 	CHECK(res->getSize().y == newRes->getSize().y);
 }
 
-TEST(TestImageResource_cloneBeforeLoad)
+TEST(TestImageResource_Clone_beforeLoad)
 {
-	printf("\n*** TestImageResource_clone ***\n");
+	lge::log::debug("ImageResourceTest", "*** TestImageResource_Clone_beforeLoad ***");
 	
 	lge::ImageResource image(TEST_IMAGE_1);
 	
@@ -75,9 +75,9 @@ TEST(TestImageResource_cloneBeforeLoad)
 	CHECK(res->getSize().y == newRes->getSize().y);
 }
 
-TEST(TestImageResource_release)
+TEST(TestImageResource_Release)
 {
-	printf("\n*** TestImageResource_release ***\n");
+	lge::log::debug("ImageResourceTest", "*** TestImageResource_Release ***");
 	
 	lge::ImageResource image(TEST_IMAGE_1, false);
 	image.load();

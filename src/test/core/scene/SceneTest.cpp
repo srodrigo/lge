@@ -10,17 +10,17 @@
 #include "lge/core/scene/Scene.h"
 #include "lge/log/logger.h"
 
-TEST(TestScene_update_noRootNode)
+TEST(TestScene_Update_noRootNode)
 {
-	lge::log::debug("SceneTest", "*** TestScene_update_noRootNode ***");
+	lge::log::debug("SceneTest", "*** TestScene_Update_noRootNode ***");
 	
 	lge::Scene scene;
 	scene.update();
 }
 
-TEST(TestScene_update)
+TEST(TestScene_Update)
 {
-	lge::log::debug("SceneTest", "*** TestScene_update ***");
+	lge::log::debug("SceneTest", "*** TestScene_Update ***");
 	
 	lge::Scene scene;
 	
@@ -38,17 +38,17 @@ TEST(TestScene_update)
 	delete root;
 }
 
-TEST(TestScene_draw_noRootNode)
+TEST(TestScene_Draw_noRootNode)
 {
-	lge::log::debug("SceneTest", "*** TestScene_draw_noRootNode ***");
+	lge::log::debug("SceneTest", "*** TestScene_Draw_noRootNode ***");
 	
 	lge::Scene scene;
 	scene.draw();
 }
 
-TEST(TestScene_draw)
+TEST(TestScene_Draw)
 {
-	lge::log::debug("SceneTest", "*** TestScene_draw ***");
+	lge::log::debug("SceneTest", "*** TestScene_Draw ***");
 	
 	lge::Scene scene;
 	

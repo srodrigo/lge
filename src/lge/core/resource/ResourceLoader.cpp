@@ -25,7 +25,7 @@ ResourceLoader::~ResourceLoader()
 	}
 	
 	if (released > 0) {
-		printf("Released %d resources not released manually\n", released);
+		lge::log::warn("ResourceLoader::~ResourceLoader", "Released %d resources not released manually", released);
 	}
 }
 

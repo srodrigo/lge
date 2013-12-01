@@ -18,9 +18,9 @@ TEST(TestSceneNode_noChildren)
 	CHECK(node.countChildren() == 0);
 }
 
-TEST(TestSceneNode_addChild_one)
+TEST(TestSceneNode_AddChild_one)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_addChild_one ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_AddChild_one ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child = new lge::SceneNode();
@@ -30,9 +30,9 @@ TEST(TestSceneNode_addChild_one)
 	delete child;
 }
 
-TEST(TestSceneNode_addChild_two)
+TEST(TestSceneNode_AddChild_two)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_addChild_two ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_AddChild_two ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child1 = new lge::SceneNode();
@@ -45,9 +45,9 @@ TEST(TestSceneNode_addChild_two)
 	delete child2;
 }
 
-TEST(TestSceneNode_removeChild_empty)
+TEST(TestSceneNode_RemoveChild_empty)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_removeChild_empty ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_RemoveChild_empty ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child = new lge::SceneNode();
@@ -57,9 +57,9 @@ TEST(TestSceneNode_removeChild_empty)
 	delete child;
 }
 
-TEST(TestSceneNode_removeChild_one)
+TEST(TestSceneNode_RemoveChild_one)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_removeChild_one ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_RemoveChild_one ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child = new lge::SceneNode();
@@ -70,9 +70,9 @@ TEST(TestSceneNode_removeChild_one)
 	delete child;
 }
 
-TEST(TestSceneNode_removeChild_oneOutOfTwo)
+TEST(TestSceneNode_RemoveChild_oneOutOfTwo)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_removeChild_oneOutOfTwo ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_RemoveChild_oneOutOfTwo ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child1 = new lge::SceneNode();
@@ -86,9 +86,9 @@ TEST(TestSceneNode_removeChild_oneOutOfTwo)
 	delete child2;
 }
 
-TEST(TestSceneNode_removeChild_oneOutOfTwoTwice)
+TEST(TestSceneNode_RemoveChild_oneOutOfTwoTwice)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_removeChild_oneOutOfTwoTwice ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_RemoveChild_oneOutOfTwoTwice ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child1 = new lge::SceneNode();
@@ -103,17 +103,17 @@ TEST(TestSceneNode_removeChild_oneOutOfTwoTwice)
 	delete child2;
 }
 
-TEST(TestSceneNode_update_noChildren)
+TEST(TestSceneNode_Update_noChildren)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_update_noChildren ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_Update_noChildren ***");
 	
 	lge::SceneNode node;
 	node.update();
 }
 
-TEST(TestSceneNode_update_twoChildren)
+TEST(TestSceneNode_Update_twoChildren)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_update_twoChildren ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_Update_twoChildren ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child1 = new lge::SceneNode();
@@ -127,17 +127,17 @@ TEST(TestSceneNode_update_twoChildren)
 	delete child2;
 }
 
-TEST(TestSceneNode_draw_noChildren)
+TEST(TestSceneNode_Draw_noChildren)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_draw_noChildren ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_Draw_noChildren ***");
 	
 	lge::SceneNode node;
 	node.draw();
 }
 
-TEST(TestSceneNode_draw_twoChildren)
+TEST(TestSceneNode_Draw_twoChildren)
 {
-	lge::log::debug("SceneNodeTest", "*** TestSceneNode_draw_twoChildren ***");
+	lge::log::debug("SceneNodeTest", "*** TestSceneNode_Draw_twoChildren ***");
 	
 	lge::SceneNode node;
 	lge::SceneNode* child1 = new lge::SceneNode();

@@ -12,16 +12,16 @@
 
 TEST(TestResourceLoader_Load)
 {
-	printf("\n*** TestResourceLoader_Load ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Load ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);
 	CHECK(resLoader.currentUsages(image) == 1);
 }
 
-TEST(TestResourceLoader_Load_Fail)
+TEST(TestResourceLoader_Load_fail)
 {
-	printf("\n*** TestResourceLoader_Load_Fail ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Load_fail ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image = resLoader.load<lge::ImageResource>("");
@@ -29,9 +29,9 @@ TEST(TestResourceLoader_Load_Fail)
 	CHECK(resLoader.currentUsages(image) == 1);
 }
 
-TEST(TestResourceLoader_Load_SeveralFiles)
+TEST(TestResourceLoader_Load_severalFiles)
 {
-	printf("\n*** TestResourceLoader_Load ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Load_severalFiles ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);
@@ -53,9 +53,9 @@ TEST(TestResourceLoader_Load_SeveralFiles)
 	CHECK(resLoader.currentUsages(image5) == 2);
 }
 
-TEST(TestResourceLoader_Load_SeveralFiles_Fail)
+TEST(TestResourceLoader_Load_severalFiles_fail)
 {
-	printf("\n*** TestResourceLoader_Load_SeveralFiles_Fail ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Load_severalFiles_fail ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);
@@ -80,7 +80,7 @@ TEST(TestResourceLoader_Load_SeveralFiles_Fail)
 
 TEST(TestResourceLoader_Release)
 {
-	printf("\n*** TestResourceLoader_Release ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Release ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);	
@@ -101,22 +101,15 @@ TEST(TestResourceLoader_Release)
 	CHECK(resLoader.currentUsages(image5) == 0);
 }
 
-TEST(TestResourceLoader_Release_Fail)
+TEST(TestResourceLoader_Release_fail)
 {
-	printf("\n*** TestResourceLoader_Release_Fail ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Release_fail ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);
-	printf("After load 1... %d\n", image1.getResource()->getSize().x);
 	
 	CHECK(resLoader.release(image1));
-	printf("Failing 1... %s\n", image1.getFilename().c_str());
-	printf("Failing 1... %p\n", image1.getResource());
-	// NOT RELEASING PROPERLY? ASIGNMENT CONSTRUCTOR NOT CREATED?
-	printf("Failing 1... %d\n", image1.getResource()->getSize().x);
-	//CHECK(image1.getResource() == NULL);
 	CHECK(resLoader.currentUsages(image1) == 0);
-	//printf("Failing 2... %p\n", image1.getResource());
 	
 	// Release having being already released
 	bool image1ReleasedAgain = resLoader.release(image1);
@@ -124,12 +117,22 @@ TEST(TestResourceLoader_Release_Fail)
 	CHECK(resLoader.currentUsages(image1) == 0);
 }
 
-TEST(TestResourceLoader_Count)
+TEST(TestResourceLoader_Count_zero)
 {
-	printf("\n*** TestResourceLoader_Release_Fail ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Count_zero ***");
 	
 	lge::ResourceLoader resLoader;
-	//CHECK(resLoader.currentUsages(NULL) == 0);
+	
+	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);
+	lge::ImageResource image2(TEST_IMAGE_2);
+	CHECK(resLoader.currentUsages(image2) == 0);
+}
+
+TEST(TestResourceLoader_Count_one)
+{
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Count_one ***");
+	
+	lge::ResourceLoader resLoader;
 	
 	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);
 	CHECK(resLoader.currentUsages(image1) == 1);
@@ -138,7 +141,7 @@ TEST(TestResourceLoader_Count)
 
 TEST(TestResourceLoader_Destructor)
 {
-	printf("\n*** TestResourceLoader_Destructor ***\n");
+	lge::log::debug("ResourceLoaderTest", "*** TestResourceLoader_Destructor ***");
 	
 	lge::ResourceLoader resLoader;
 	const lge::ImageResource image1 = resLoader.load<lge::ImageResource>(TEST_IMAGE_1);	

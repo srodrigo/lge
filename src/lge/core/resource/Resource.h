@@ -14,6 +14,7 @@
 #include <stdio.h>
 
 #include "lge/util/StringUtil.h"
+#include "lge/log/logger.h"
 
 namespace lge
 {
@@ -102,10 +103,10 @@ public:
 	virtual void release()
 	{
 		if (resource) {
-			printf("Removing resource pointer %p\n", resource);
+			lge::log::debug("Resource::release", "Removing resource pointer %p", resource);
 			delete resource;
 			resource = NULL;
-			printf("Resource pointer %p removed\n", resource);
+			lge::log::debug("Resource::release", "Resource pointer %p removed", resource);
 		}
 	}
 
