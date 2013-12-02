@@ -43,6 +43,7 @@ public:
 	 * Removes a child from the current node.
 	 * 
 	 * @param child Pointer to the child
+	 * @return true if the child exists; false otherwise
 	 */
 	bool removeChild(SceneNode* child);
 	
