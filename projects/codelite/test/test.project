@@ -98,7 +98,7 @@
     <VirtualDirectory Name="resource">
       <File Name="../../../src/test/core/resource/ResourceLoaderTest.cpp"/>
       <File Name="../../../src/test/core/resource/ImageResourceTest.cpp"/>
-      <File Name="../../../src/test/log/loggerTest.cpp"/>
+      <File Name="../../../src/test/core/resource/SpriteResourceTest.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="scene">
       <File Name="../../../src/test/core/scene/SceneTest.cpp"/>
@@ -107,5 +107,8 @@
   </VirtualDirectory>
   <VirtualDirectory Name="util">
     <File Name="../../../src/test/util/StringUtilTest.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="log">
+    <File Name="../../../src/test/log/loggerTest.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

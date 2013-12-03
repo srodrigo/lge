@@ -102,6 +102,8 @@
       <File Name="../../../src/lge/core/resource/ImageResource.cpp"/>
       <File Name="../../../src/lge/core/resource/ResourceLoader.cpp"/>
       <File Name="../../../src/lge/core/resource/IResource.h"/>
+      <File Name="../../../src/lge/core/resource/SpriteResource.h"/>
+      <File Name="../../../src/lge/core/resource/SpriteResource.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="scene">
       <File Name="../../../src/lge/core/scene/Scene.h"/>
