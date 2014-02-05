@@ -13,8 +13,8 @@
 namespace lge
 {
 
-Scene::Scene()
-		: rootNode(NULL)
+Scene::Scene(sf::RenderWindow* window)
+		: rootNode(NULL), window(window)
 {
 }
 
@@ -35,9 +35,13 @@ void Scene::draw() const
 {
 	lge::log::debug("Scene::draw", "Drawing scene");
 	
+	window->clear();
+	
 	if (rootNode) {
-		rootNode->draw();
+		rootNode->draw(window);
 	}
+	
+	window->display();
 }
 
 } // namespace

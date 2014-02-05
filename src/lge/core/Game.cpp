@@ -7,33 +7,41 @@
 
 #include "lge/core/Game.h"
 
+#include "lge/log/logger.h"
+
 namespace lge
 {
 
 const std::string Game::DEFAULT_NAME = "Lightweight Game Engine";
 
 Game::Game()
-		: name(DEFAULT_NAME), window(sf::VideoMode(800, 600), DEFAULT_NAME)
+		: name(DEFAULT_NAME)
 {
+	window = new sf::RenderWindow(sf::VideoMode(800, 600), name);
+	scene = new lge::Scene(window);
 }
 
 Game::~Game()
 {
+	delete scene;
+	delete window;
 }
 
 void Game::run()
 {
-	//window.setVisible(true);
-	while (window.isOpen()) {
+	lge::log::debug("Game::run", "Running game");
+	
+	sf::RenderWindow* renderWin = scene->getWindow();
+	renderWin->setVisible(true);
+	while (renderWin->isOpen()) {
 		sf::Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				window.close();
-			}
-			
-			window.clear(sf::Color::Black);
-			window.display();
+		renderWin->pollEvent(event);
+		lge::log::debug("Game::run", "Checking event");
+		if (event.type == sf::Event::Closed) {
+			renderWin->close();
 		}
+		scene->draw();
+		// TODO: delay
 	}
 }
 

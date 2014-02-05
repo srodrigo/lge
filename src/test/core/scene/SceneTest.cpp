@@ -7,6 +7,8 @@
 
 #include "test/test.h"
 
+#include <SFML/Graphics.hpp>
+
 #include "lge/core/scene/Scene.h"
 #include "lge/log/logger.h"
 
@@ -14,7 +16,8 @@ TEST(TestScene_Update_noRootNode)
 {
 	lge::log::debug("SceneTest", "*** TestScene_Update_noRootNode ***");
 	
-	lge::Scene scene;
+	sf::RenderWindow win;
+	lge::Scene scene(&win);
 	scene.update();
 }
 
@@ -22,7 +25,8 @@ TEST(TestScene_Update)
 {
 	lge::log::debug("SceneTest", "*** TestScene_Update ***");
 	
-	lge::Scene scene;
+	sf::RenderWindow win;
+	lge::Scene scene(&win);
 	
 	lge::SceneNode* root = new lge::SceneNode();
 	lge::SceneNode* child1 = new lge::SceneNode();
@@ -42,7 +46,8 @@ TEST(TestScene_Draw_noRootNode)
 {
 	lge::log::debug("SceneTest", "*** TestScene_Draw_noRootNode ***");
 	
-	lge::Scene scene;
+	sf::RenderWindow win;
+	lge::Scene scene(&win);
 	scene.draw();
 }
 
@@ -50,7 +55,8 @@ TEST(TestScene_Draw)
 {
 	lge::log::debug("SceneTest", "*** TestScene_Draw ***");
 	
-	lge::Scene scene;
+	sf::RenderWindow win;
+	lge::Scene scene(&win);
 	
 	lge::SceneNode* root = new lge::SceneNode();
 	lge::SceneNode* child1 = new lge::SceneNode();

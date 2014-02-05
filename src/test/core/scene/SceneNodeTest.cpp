@@ -132,7 +132,8 @@ TEST(TestSceneNode_Draw_noChildren)
 	lge::log::debug("SceneNodeTest", "*** TestSceneNode_Draw_noChildren ***");
 	
 	lge::SceneNode node;
-	node.draw();
+	sf::RenderWindow window;
+	node.draw(&window);
 }
 
 TEST(TestSceneNode_Draw_twoChildren)
@@ -145,7 +146,8 @@ TEST(TestSceneNode_Draw_twoChildren)
 	lge::SceneNode* child2 = new lge::SceneNode();
 	node.addChild(child2);
 	
-	node.draw();
+	sf::RenderWindow window;
+	node.draw(&window);
 	
 	delete child1;
 	delete child2;

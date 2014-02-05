@@ -47,14 +47,16 @@ SpriteResource* SpriteResource::clone() const
 
 bool SpriteResource::load()
 {
+	bool success = false;
 	if (getResource() == NULL) {
 		lge::log::debug("SpriteResource::load", "Creating SpriteResource");
 		texture = sf::Texture();
+		lge::log::debug("SpriteResource::load", "Loading SpriteResource \"%s\"\n", getFilename().c_str());
+		success = texture.loadFromFile(getFilename());
 		setResource(new sf::Sprite(texture));
 	}
 	
-	lge::log::debug("SpriteResource::load", "Loading SpriteResource \"%s\"\n", getFilename().c_str());
-	return texture.loadFromFile(getFilename());
+	return success;
 }
 
 } // namespace

@@ -10,6 +10,8 @@
 
 #include "lge/core/scene/SceneNode.h"
 
+#include <SFML/Graphics.hpp>
+
 namespace lge
 {
 
@@ -25,7 +27,8 @@ namespace lge
 class Scene
 {
 public:
-	Scene();
+	explicit Scene(sf::RenderWindow* window);
+	
 	virtual ~Scene();
 	
 	/**
@@ -59,9 +62,20 @@ public:
 	 * @return Root node
 	 */
 	SceneNode* getRootNode() { return rootNode; }
+	
+	/**
+	 * @brief Get the window
+	 * 
+	 * Gets the window where the scene draws.
+	 * 
+	 * @return Window
+	 */
+	sf::RenderWindow* getWindow() { return window; }
 
 private:
 	SceneNode* rootNode;
+	
+	sf::RenderWindow* window;
 
 };
 

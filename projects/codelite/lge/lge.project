@@ -110,6 +110,8 @@
       <File Name="../../../src/lge/core/scene/Scene.cpp"/>
       <File Name="../../../src/lge/core/scene/SceneNode.h"/>
       <File Name="../../../src/lge/core/scene/SceneNode.cpp"/>
+      <File Name="../../../src/lge/core/scene/SpriteNode.h"/>
+      <File Name="../../../src/lge/core/scene/SpriteNode.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>

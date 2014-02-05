@@ -10,7 +10,7 @@
 
 #include <string>
 
-#include <SFML/Graphics.hpp>
+#include "lge/core/scene/Scene.h"
 
 namespace lge
 {
@@ -25,12 +25,16 @@ public:
 
 	void setName(const std::string& name);
 	const std::string& getName() const;
+	
+	lge::Scene* getScene() const { return scene; };
 
 private:
 	static const std::string DEFAULT_NAME;
 	
-	std::string name;	
-	sf::RenderWindow window;
+	std::string name;
+	
+	sf::RenderWindow* window;
+	lge::Scene* scene;
 
 };
 

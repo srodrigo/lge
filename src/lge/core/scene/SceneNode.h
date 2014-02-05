@@ -5,16 +5,18 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-#ifndef _LGE_SCENENODE_H_
-#define _LGE_SCENENODE_H_
+#ifndef _LGE_SCENE_NODE_H
+#define _LGE_SCENE_NODE_H
 
 #include <vector>
+
+#include <SFML/Graphics.hpp>
 
 namespace lge
 {
 
 /**
- * @brief Represents a node
+ * @brief Represents a Scene node
  * 
  * Represents a node in a scene and provides operations to update and draw the node.
  * 
@@ -67,11 +69,23 @@ public:
 	 * @brief Draw the node
 	 * 
 	 * Draws the current node and its children.
+	 * 
+	 * @param window Window to draw the node in
 	 */
-	virtual void draw() const;
+	virtual void draw(sf::RenderWindow* window) const;
+	
+	virtual void setPosition(int x, int y);
+
+protected:
+	std::vector<SceneNode*> getChildren() { return children; }
+	
+	int getPosX() { return posX; };
+	int getPosY() { return posY; };
 
 private:
 	std::vector<SceneNode*> children;
+	
+	int posX, posY;
 
 };
 

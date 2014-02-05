@@ -62,17 +62,23 @@ void SceneNode::update()
 	lge::log::debug("SceneNode::update", "Updating node");
 }
 
-void SceneNode::draw() const
+void SceneNode::draw(sf::RenderWindow* window) const
 {
 	lge::log::debug("SceneNode::draw", "Drawing children");
 	
 	for (std::vector<SceneNode*>::const_iterator iter = children.begin();
 			iter != children.end();
 			++iter) {
-		(*iter)->draw();
+		(*iter)->draw(window);
 	}
 	
 	lge::log::debug("SceneNode::draw", "Drawing node");
+}
+
+void SceneNode::setPosition(int x, int y)
+{
+	posX = x;
+	posY = y;
 }
 
 } // namespace

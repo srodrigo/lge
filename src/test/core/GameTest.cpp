@@ -7,8 +7,18 @@
 
 #include "test/test.h"
 
+#include "lge/core/Game.h"
+#include "lge/core/scene/SpriteNode.h"
+
 TEST(TestGame_Run)
 {
-	//lge::core::Game game;
-	//game.run();
+	/*lge::SceneNode root = lge::SceneNode();
+	lge::SpriteNode child = lge::SpriteNode(TEST_IMAGE_1);
+	child.load();
+	child.setPosition(150, 150);
+	root.addChild(&child);
+	
+	lge::Game game;
+	game.getScene()->setRootNode(&root);
+	game.run();*/
 }
