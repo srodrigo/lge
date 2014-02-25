@@ -25,7 +25,7 @@ void SpriteNode::update()
 {
 	lge::SceneNode::update();
 	
-	sprite.getResource()->setPosition(getPosX(), getPosY());
+	sprite.setPosition(getPosX(), getPosY());
 }
 
 void SpriteNode::draw(sf::RenderWindow* window) const
@@ -33,14 +33,14 @@ void SpriteNode::draw(sf::RenderWindow* window) const
 	lge::log::debug("SpriteNode::draw", "Drawing using parent");
 	
 	lge::SceneNode::draw(window);
+	
 	sf::Sprite* resource = sprite.getResource();
 	if (resource == NULL) {
 		lge::log::warn("SpriteNode::draw", "Attempting to draw a null sprite");
 		return;
 	}
 	lge::log::debug("SpriteNode::draw", "Drawing Sprite node");
-	//resource->getTexture()->update(*window);
-	window->draw(*(resource));
+	window->draw(*resource);
 }
 
 bool SpriteNode::load()

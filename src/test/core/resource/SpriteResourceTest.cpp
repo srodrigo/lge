@@ -7,6 +7,7 @@
 
 #include "test/test.h"
 
+#include <SFML/System/Vector2.hpp>
 #include "lge/core/resource/SpriteResource.h"
 
 TEST(TestSpriteResource_Load)
@@ -84,4 +85,28 @@ TEST(TestSpriteResource_Release)
 	CHECK(sprite.getResource() != NULL);
 	sprite.release();
 	CHECK(sprite.getResource() == NULL);
+}
+
+TEST(TestSpriteResource_SetPosition_Twice)
+{
+	lge::log::debug("SpriteResourceTest", "*** TestSpriteResource_SetPosition_Twice ***");
+	
+	lge::SpriteResource sprite(TEST_IMAGE_1, false);
+	sprite.load();
+	
+	int spritePosX = 126;
+	int spritePosY = 435;
+	sprite.setPosition(spritePosX, spritePosY);
+	sf::Vector2f resPosition = sprite.getResource()->getPosition();
+	CHECK(resPosition.x == spritePosX);
+	CHECK(resPosition.y == spritePosY);
+	
+	int spriteNewPosX = 352;
+	int spriteNewPosY = 299;
+	sprite.setPosition(spriteNewPosX, spriteNewPosY);
+	sf::Vector2f resNewPosition = sprite.getResource()->getPosition();
+	CHECK(resNewPosition.x == spriteNewPosX);
+	CHECK(resNewPosition.y == spriteNewPosY);
+	
+	sprite.release();
 }

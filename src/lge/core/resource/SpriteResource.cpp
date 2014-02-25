@@ -59,4 +59,14 @@ bool SpriteResource::load()
 	return success;
 }
 
+void SpriteResource::setPosition(int x, int y)
+{
+	if (getResource() == NULL) {
+		lge::log::warn("SpriteResource::setPosition",
+				"Attempting to set the position of a null sprite");
+		return;
+	}
+	getResource()->setPosition(x, y);
+}
+
 } // namespace

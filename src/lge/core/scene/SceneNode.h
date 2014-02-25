@@ -75,12 +75,12 @@ public:
 	virtual void draw(sf::RenderWindow* window) const;
 	
 	virtual void setPosition(int x, int y);
+	
+	int getPosX() const { return posX; };
+	int getPosY() const { return posY; };
 
 protected:
 	std::vector<SceneNode*> getChildren() { return children; }
-	
-	int getPosX() { return posX; };
-	int getPosY() { return posY; };
 
 private:
 	std::vector<SceneNode*> children;

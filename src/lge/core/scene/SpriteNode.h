@@ -33,27 +33,13 @@ public:
 	explicit SpriteNode(const std::string& filename);
 	virtual ~SpriteNode();
 	
-	/**
-	 * @brief Update the node
-	 * 
-	 * Updates the current node.
-	 */
 	virtual void update();
-	/**
-	 * @brief Draw the node
-	 * 
-	 * Draws the current node.
-	 */
+
 	virtual void draw(sf::RenderWindow* window) const;
 	
-	/**
-	 * @brief Load the node
-	 * 
-	 * Loads the current node.
-	 * 
-	 * @return Whether the node was successfully loaded
-	 */
 	virtual bool load();
+	
+	SpriteResource* getResource() { return &sprite; }
 	
 private:
 	SpriteResource sprite;

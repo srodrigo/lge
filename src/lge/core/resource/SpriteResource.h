@@ -44,6 +44,16 @@ public:
 	 * @return true if the resource was loaded successfully; false otherwise
 	 */
 	virtual bool load();
+	
+	/**
+	 * @brief Set Resource position
+	 * 
+	 * Sets the position of the resource.
+	 *
+	 * @param x Pos x
+	 * @param y Pos y
+	 */
+	virtual void setPosition(int x, int y);
 		
 protected:
 	SpriteResource(const std::string& filename, sf::Sprite* const resource);

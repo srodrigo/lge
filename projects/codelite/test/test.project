@@ -103,6 +103,7 @@
     <VirtualDirectory Name="scene">
       <File Name="../../../src/test/core/scene/SceneTest.cpp"/>
       <File Name="../../../src/test/core/scene/SceneNodeTest.cpp"/>
+      <File Name="../../../src/test/core/scene/SpriteNodeTest.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="util">
