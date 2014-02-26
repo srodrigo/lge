@@ -13,15 +13,6 @@
 namespace lge
 {
 
-Scene::Scene(sf::RenderWindow* window)
-		: rootNode(NULL), window(window)
-{
-}
-
-Scene::~Scene()
-{
-}
-
 void Scene::update()
 {
 	lge::log::debug("Scene::update", "Updating scene");

@@ -14,21 +14,6 @@
 namespace lge
 {
 
-ImageResource::ImageResource(const std::string& filename)
-			: Resource(filename)
-{
-}
-
-ImageResource::ImageResource(const std::string& filename, sf::Image* const resource)
-		: Resource(filename, resource)
-{
-}
-
-ImageResource::ImageResource(const std::string& filename, bool releaseResource)
-		: Resource(filename, releaseResource)
-{
-}
-
 ImageResource::~ImageResource()
 {
 	lge::log::debug("ImageResource::~ImageResource", "Destroying ImageResource");

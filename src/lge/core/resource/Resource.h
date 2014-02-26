@@ -58,9 +58,7 @@ public:
 	 * @param filename Complete resource location
 	 */
 	explicit Resource(const std::string& filename)
-			: filename(filename), resource(NULL), autoreleaseResource(true)
-	{
-	}
+			: filename(filename), resource(NULL), autoreleaseResource(true) {}
 	
 	/**
 	 * @brief Constructor
@@ -77,9 +75,8 @@ public:
 	 * @see {@link #Resource(const std::string&)}
 	 */
 	Resource(const std::string& filename, bool autoreleaseResource)
-			: filename(filename), resource(NULL), autoreleaseResource(autoreleaseResource)
-	{
-	}
+			: filename(filename), resource(NULL),
+					autoreleaseResource(autoreleaseResource) {}
 	
 	/**
 	 * @brief Virtual destructor
@@ -142,15 +139,9 @@ public:
 	 * 
 	 * @return Filename
 	 */
-	const std::string& getFilename() const
-	{
-		return filename;
-	}
+	const std::string& getFilename() const { return filename; }
 	
-	T* getResource() const
-	{
-		return resource;
-	}
+	T* getResource() const { return resource; }
 	
 protected:
 	
@@ -162,10 +153,7 @@ protected:
 	 * 
 	 * @param resource Internal pointer to the resource
 	 */
-	void setResource(T* const resource)
-	{
-		this->resource = resource;
-	}
+	void setResource(T* const resource) { this->resource = resource; }
 	
 private:
 	std::string filename;

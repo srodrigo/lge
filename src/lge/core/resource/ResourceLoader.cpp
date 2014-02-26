@@ -10,10 +10,6 @@
 namespace lge
 {
 
-ResourceLoader::ResourceLoader()
-{
-}
-
 ResourceLoader::~ResourceLoader()
 {
 	int released = 0;

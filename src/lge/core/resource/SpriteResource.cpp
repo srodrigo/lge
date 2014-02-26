@@ -14,21 +14,6 @@
 namespace lge
 {
 
-SpriteResource::SpriteResource(const std::string& filename)
-			: Resource(filename)
-{
-}
-
-SpriteResource::SpriteResource(const std::string& filename, sf::Sprite* const resource)
-		: Resource(filename, resource)
-{
-}
-
-SpriteResource::SpriteResource(const std::string& filename, bool releaseResource)
-		: Resource(filename, releaseResource)
-{
-}
-
 SpriteResource::~SpriteResource()
 {
 	lge::log::debug("SpriteResource::~SpriteResource", "Destroying SpriteResource");

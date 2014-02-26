@@ -45,12 +45,4 @@ void Game::run()
 	}
 }
 
-void Game::setName(const std::string& name) {
-	this->name = name;
-}
-
-const std::string& Game::getName() const {
-	return name;
-}
-
 } // namespace

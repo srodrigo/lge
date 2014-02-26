@@ -12,15 +12,6 @@
 namespace lge
 {
 
-SpriteNode::SpriteNode(const std::string& filename)
-		: sprite(filename)
-{
-}
-
-SpriteNode::~SpriteNode()
-{
-}
-
 void SpriteNode::update()
 {
 	lge::SceneNode::update();

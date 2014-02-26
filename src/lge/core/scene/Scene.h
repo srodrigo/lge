@@ -27,9 +27,10 @@ namespace lge
 class Scene
 {
 public:
-	explicit Scene(sf::RenderWindow* window);
+	explicit Scene(sf::RenderWindow* window)
+			: rootNode(NULL), window(window) {}
 	
-	virtual ~Scene();
+	virtual ~Scene() {}
 	
 	/**
 	 * @brief Update the scene

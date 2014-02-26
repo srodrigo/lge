@@ -38,7 +38,7 @@ namespace lge
 class ResourceLoader
 {
 public:
-	ResourceLoader();
+	ResourceLoader() {}
 	
 	/**
 	 * @brief Destructor
@@ -151,9 +151,7 @@ private:
 		int usages;
 		
 		ResourceEntry(IResource* const ptr, int usages)
-				: ptr(ptr), usages(usages)
-		{
-		}
+				: ptr(ptr), usages(usages) {}
 	};
 
 	typedef std::map<int, ResourceEntry> ResourceContainer;

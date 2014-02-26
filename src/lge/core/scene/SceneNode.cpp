@@ -11,14 +11,6 @@
 
 namespace lge
 {
-
-SceneNode::SceneNode()
-{
-}
-
-SceneNode::~SceneNode()
-{
-}
 	
 void SceneNode::addChild(SceneNode* child)
 {

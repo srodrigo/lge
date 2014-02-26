@@ -30,8 +30,10 @@ namespace lge
 class SpriteNode : public SceneNode
 {
 public:
-	explicit SpriteNode(const std::string& filename);
-	virtual ~SpriteNode();
+	explicit SpriteNode(const std::string& filename)
+			: sprite(filename) {}
+	
+	virtual ~SpriteNode() {}
 	
 	virtual void update();
 

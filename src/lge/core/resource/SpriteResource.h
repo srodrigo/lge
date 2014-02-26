@@ -28,9 +28,11 @@ namespace lge
 class SpriteResource : public Resource<sf::Sprite>
 {
 public:
-	explicit SpriteResource(const std::string& filename);
+	explicit SpriteResource(const std::string& filename)
+			: Resource(filename) {}
 	
-	explicit SpriteResource(const std::string& filename, bool releaseResource);
+	explicit SpriteResource(const std::string& filename, bool releaseResource)
+			: Resource(filename, releaseResource) {}
 	
 	virtual ~SpriteResource();
 	
@@ -56,7 +58,8 @@ public:
 	virtual void setPosition(int x, int y);
 		
 protected:
-	SpriteResource(const std::string& filename, sf::Sprite* const resource);
+	SpriteResource(const std::string& filename, sf::Sprite* const resource)
+			: Resource(filename, resource) {}
 	
 	SpriteResource& operator=(const SpriteResource& res);
 	

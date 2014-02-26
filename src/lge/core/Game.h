@@ -23,10 +23,10 @@ public:
 
 	void run();
 
-	void setName(const std::string& name);
-	const std::string& getName() const;
+	void setName(const std::string& name) { this->name = name; }
+	const std::string& getName() const { return name; }
 	
-	lge::Scene* getScene() const { return scene; };
+	lge::Scene* getScene() const { return scene; }
 
 private:
 	static const std::string DEFAULT_NAME;

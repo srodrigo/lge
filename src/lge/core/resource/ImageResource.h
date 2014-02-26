@@ -27,9 +27,11 @@ namespace lge
 class ImageResource : public Resource<sf::Image>
 {
 public:
-	explicit ImageResource(const std::string& filename);
+	explicit ImageResource(const std::string& filename)
+			: Resource(filename) {}
 	
-	explicit ImageResource(const std::string& filename, bool releaseResource);
+	explicit ImageResource(const std::string& filename, bool releaseResource)
+			: Resource(filename, releaseResource) {}
 	
 	virtual ~ImageResource();
 	
@@ -45,7 +47,8 @@ public:
 	virtual bool load();
 		
 protected:
-	ImageResource(const std::string& filename, sf::Image* const resource);
+	ImageResource(const std::string& filename, sf::Image* const resource)
+			: Resource(filename, resource) {}
 	
 	ImageResource& operator=(const ImageResource& res);
 

@@ -27,8 +27,9 @@ namespace lge
 class SceneNode
 {
 public:
-	SceneNode();
-	virtual ~SceneNode();
+	SceneNode() {}
+	
+	virtual ~SceneNode() {}
 	
 	/**
 	 * @brief Add a child
