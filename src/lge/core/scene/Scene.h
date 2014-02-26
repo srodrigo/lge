@@ -37,14 +37,14 @@ public:
 	 * 
 	 * Updates the scene updating the root node.
 	 */
-	void update();
+	virtual void update();
 	
 	/**
 	 * @brief Draw the scene
 	 * 
 	 * Draws the scene drawing the root node.
 	 */
-	void draw() const;
+	virtual void draw() const;
 	
 	/**
 	 * @brief Set the root node
