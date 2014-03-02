@@ -26,12 +26,16 @@ public:
 	void setName(const std::string& name) { this->name = name; }
 	const std::string& getName() const { return name; }
 	
+	void setFPS(unsigned int fps) { this->fps = fps; }
+	
 	lge::Scene* getScene() const { return scene; }
 
 private:
 	static const std::string DEFAULT_NAME;
+	static const unsigned int DEFAULT_FPS;
 	
 	std::string name;
+	unsigned int fps;
 	
 	sf::RenderWindow* window;
 	lge::Scene* scene;

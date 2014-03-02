@@ -13,9 +13,10 @@ namespace lge
 {
 
 const std::string Game::DEFAULT_NAME = "Lightweight Game Engine";
+const unsigned int Game::DEFAULT_FPS = 30;
 
 Game::Game()
-		: name(DEFAULT_NAME)
+		: name(DEFAULT_NAME), fps(DEFAULT_FPS)
 {
 	window = new sf::RenderWindow(sf::VideoMode(800, 600), name);
 	scene = new lge::Scene(window);
@@ -33,6 +34,8 @@ void Game::run()
 	
 	sf::RenderWindow* renderWin = scene->getWindow();
 	renderWin->setVisible(true);
+	renderWin->setFramerateLimit(fps);
+	renderWin->setVerticalSyncEnabled(true);
 	while (renderWin->isOpen()) {
 		sf::Event event;
 		renderWin->pollEvent(event);
@@ -40,8 +43,8 @@ void Game::run()
 		if (event.type == sf::Event::Closed) {
 			renderWin->close();
 		}
+		scene->update();
 		scene->draw();
-		// TODO: delay
 	}
 }
 

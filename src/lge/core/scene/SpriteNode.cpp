@@ -12,9 +12,9 @@
 namespace lge
 {
 
-void SpriteNode::update()
+void SpriteNode::update(sf::Int32 delta)
 {
-	lge::SceneNode::update();
+	lge::SceneNode::update(delta);
 	
 	sprite.setPosition(getPosX(), getPosY());
 }

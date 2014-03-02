@@ -108,7 +108,7 @@ TEST(TestSceneNode_Update_noChildren)
 	lge::log::debug("SceneNodeTest", "*** TestSceneNode_Update_noChildren ***");
 	
 	lge::SceneNode node;
-	node.update();
+	node.update(MILIS_IN_FRAME_30FPS);
 }
 
 TEST(TestSceneNode_Update_twoChildren)
@@ -121,7 +121,7 @@ TEST(TestSceneNode_Update_twoChildren)
 	lge::SceneNode* child2 = new lge::SceneNode();
 	node.addChild(child2);
 	
-	node.update();
+	node.update(MILIS_IN_FRAME_30FPS);
 	
 	delete child1;
 	delete child2;
@@ -151,4 +151,31 @@ TEST(TestSceneNode_Draw_twoChildren)
 	
 	delete child1;
 	delete child2;
+}
+
+TEST(TestSceneNode_SetPosition_Two_Variables)
+{
+	lge::log::debug("TestSceneNode", "*** TestSceneNode_SetPosition_Two_Variables ***");
+	
+	lge::SceneNode node;
+	float posX = 342.5f;
+	float posY = 64.3f;
+	node.setPosition(posX, posY);
+	CHECK(node.getPosX() == posX);
+	CHECK(node.getPosY() == posY);
+	CHECK(node.getPosition() == sf::Vector2f(posX, posY));
+}
+
+TEST(TestSceneNode_SetPosition_Vector)
+{
+	lge::log::debug("TestSceneNode", "*** TestSceneNode_SetPosition_Vector ***");
+	
+	lge::SceneNode node;
+	float posX = 342.5f;
+	float posY = 64.3f;
+	sf::Vector2f vectorPos(posX, posY);
+	node.setPosition(vectorPos);
+	CHECK(node.getPosX() == posX);
+	CHECK(node.getPosY() == posY);
+	CHECK(node.getPosition() == vectorPos);
 }

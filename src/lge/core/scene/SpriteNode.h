@@ -35,7 +35,7 @@ public:
 	
 	virtual ~SpriteNode() {}
 	
-	virtual void update();
+	virtual void update(sf::Int32 delta);
 
 	virtual void draw(sf::RenderWindow* window) const;
 	

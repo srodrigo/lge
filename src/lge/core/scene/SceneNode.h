@@ -27,7 +27,8 @@ namespace lge
 class SceneNode
 {
 public:
-	SceneNode() {}
+	SceneNode()
+			: posX(0.0f), posY(0.0f) {}
 	
 	virtual ~SceneNode() {}
 	
@@ -63,8 +64,10 @@ public:
 	 * @brief Update the node
 	 * 
 	 * Updates the current node and its children.
+	 * 
+	 * @param delta Time elapsed since las update
 	 */
-	virtual void update();
+	virtual void update(sf::Int32 delta);
 	
 	/**
 	 * @brief Draw the node
@@ -75,10 +78,14 @@ public:
 	 */
 	virtual void draw(sf::RenderWindow* window) const;
 	
-	virtual void setPosition(int x, int y);
+	void setPosition(float x, float y);
+	void setPosition(sf::Vector2f pos);
+	void setPosX(float x) { posX = x; }
+	void setPosY(float y) { posY = y; }
 	
-	int getPosX() const { return posX; };
-	int getPosY() const { return posY; };
+	sf::Vector2f getPosition() { return sf::Vector2f(posX, posY); }
+	float getPosX() const { return posX; };
+	float getPosY() const { return posY; };
 
 protected:
 	std::vector<SceneNode*> getChildren() { return children; }
@@ -86,7 +93,7 @@ protected:
 private:
 	std::vector<SceneNode*> children;
 	
-	int posX, posY;
+	float posX, posY;
 
 };
 

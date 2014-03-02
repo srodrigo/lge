@@ -8,6 +8,7 @@
 #include "lge/core/scene/Scene.h"
 
 #include <stdlib.h>
+#include "lge/core/Time.h"
 #include "lge/log/logger.h"
 
 namespace lge
@@ -18,7 +19,7 @@ void Scene::update()
 	lge::log::debug("Scene::update", "Updating scene");
 	
 	if (rootNode) {
-		rootNode->update();
+		rootNode->update(lge::time::getElapsedTimeInMilis());
 	}
 }
 
