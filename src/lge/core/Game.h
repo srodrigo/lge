@@ -29,6 +29,25 @@ public:
 	void setFPS(unsigned int fps) { this->fps = fps; }
 	
 	lge::Scene* getScene() const { return scene; }
+	
+protected:
+	/**
+	 * @brief Perform actions before running the game
+	 * 
+	 * Performs the actions required before the game starts running.
+	 * 
+	 * To be overrided.
+	 */
+	void setup();
+	
+	/**
+	 * @brief Perform actions after running the game
+	 * 
+	 * Performs the actions required after the game has finished running.
+	 * 
+	 * To be overrided.
+	 */
+	void cleanup();
 
 private:
 	static const std::string DEFAULT_NAME;

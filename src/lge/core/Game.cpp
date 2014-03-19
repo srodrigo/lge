@@ -30,14 +30,16 @@ Game::~Game()
 
 void Game::run()
 {
+	setup();
+	
 	lge::log::debug("Game::run", "Running game");
 	
 	sf::RenderWindow* renderWin = scene->getWindow();
 	renderWin->setVisible(true);
 	renderWin->setFramerateLimit(fps);
 	renderWin->setVerticalSyncEnabled(true);
+	sf::Event event;
 	while (renderWin->isOpen()) {
-		sf::Event event;
 		renderWin->pollEvent(event);
 		lge::log::debug("Game::run", "Checking event");
 		if (event.type == sf::Event::Closed) {
@@ -46,6 +48,12 @@ void Game::run()
 		scene->update();
 		scene->draw();
 	}
+	
+	cleanup();
 }
+
+void Game::setup() {}
+
+void Game::cleanup() {}
 
 } // namespace
