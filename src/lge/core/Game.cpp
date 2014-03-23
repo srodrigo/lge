@@ -31,28 +31,31 @@ Game::~Game()
 void Game::run()
 {
 	setup();
-	
-	lge::log::debug("Game::run", "Running game");
-	
-	sf::RenderWindow* renderWin = scene->getWindow();
-	renderWin->setVisible(true);
-	renderWin->setFramerateLimit(fps);
-	renderWin->setVerticalSyncEnabled(true);
-	sf::Event event;
-	while (renderWin->isOpen()) {
-		renderWin->pollEvent(event);
-		lge::log::debug("Game::run", "Checking event");
-		if (event.type == sf::Event::Closed) {
-			renderWin->close();
-		}
-		scene->update();
-		scene->draw();
-	}
-	
+	mainLoop();
 	cleanup();
 }
 
-void Game::setup() {}
+void Game::setup()
+{
+	window->setVisible(true);
+	window->setFramerateLimit(fps);
+	window->setVerticalSyncEnabled(true);
+}
+
+void Game::mainLoop()
+{
+	sf::Event event;
+	while (window->isOpen()) {
+		window->pollEvent(event);
+		lge::log::debug("Game::run", "Checking event");
+		if (event.type == sf::Event::Closed) {
+			window->close();
+		}
+		// TODO: Read user input
+		scene->update();
+		scene->draw();
+	}
+}
 
 void Game::cleanup() {}
 

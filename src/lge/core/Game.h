@@ -36,9 +36,19 @@ protected:
 	 * 
 	 * Performs the actions required before the game starts running.
 	 * 
-	 * To be overrided.
+	 * To be overrided. This method should be called from the subclasses to
+	 * setup the generic stuff.
 	 */
 	void setup();
+	
+	/**
+	 * @brief Perform the main game loop actions
+	 * 
+	 * Performs the actions needed on the main game loop.
+	 * 
+	 * Override to provide a custom main game loop.
+	 */
+	void mainLoop();
 	
 	/**
 	 * @brief Perform actions after running the game
