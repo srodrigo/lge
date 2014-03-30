@@ -51,6 +51,15 @@ protected:
 	void mainLoop();
 	
 	/**
+	 * @brief Process user input
+	 * 
+	 * Processes the input from the user.
+	 * 
+	 * Override to provide a custom input processing.
+	 */
+	void processInput();
+	
+	/**
 	 * @brief Perform actions after running the game
 	 * 
 	 * Performs the actions required after the game has finished running.

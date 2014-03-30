@@ -39,21 +39,26 @@ void Game::setup()
 {
 	window->setVisible(true);
 	window->setFramerateLimit(fps);
-	window->setVerticalSyncEnabled(true);
 }
 
 void Game::mainLoop()
 {
-	sf::Event event;
 	while (window->isOpen()) {
-		window->pollEvent(event);
-		lge::log::debug("Game::run", "Checking event");
+		processInput();
+		scene->update();
+		scene->draw();
+	}
+}
+
+void Game::processInput()
+{
+	sf::Event event;
+	while (window->pollEvent(event)) {
+		lge::log::debug("Game::processInput", "Checking event");
 		if (event.type == sf::Event::Closed) {
 			window->close();
 		}
 		// TODO: Read user input
-		scene->update();
-		scene->draw();
 	}
 }
 
