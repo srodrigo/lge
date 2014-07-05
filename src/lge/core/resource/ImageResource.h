@@ -8,7 +8,7 @@
 #ifndef _LGE_IMAGE_RESOURCE_H_
 #define _LGE_IMAGE_RESOURCE_H_
 
-#include "lge/core/resource/Resource.h"
+#include "lge/core/resource/AbstractResource.h"
 
 #include <SFML/Graphics/Image.hpp>
 
@@ -24,14 +24,14 @@ namespace lge
  * 
  * @author Sergio Rodrigo
  */
-class ImageResource : public Resource<sf::Image>
+class ImageResource : public AbstractResource<sf::Image>
 {
 public:
 	explicit ImageResource(const std::string& filename)
-			: Resource(filename) {}
+			: AbstractResource(filename) {}
 	
 	explicit ImageResource(const std::string& filename, bool releaseResource)
-			: Resource(filename, releaseResource) {}
+			: AbstractResource(filename, releaseResource) {}
 	
 	virtual ~ImageResource();
 	
@@ -48,7 +48,7 @@ public:
 		
 protected:
 	ImageResource(const std::string& filename, sf::Image* const resource)
-			: Resource(filename, resource) {}
+			: AbstractResource(filename, resource) {}
 	
 	ImageResource& operator=(const ImageResource& res);
 

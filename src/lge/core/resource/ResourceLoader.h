@@ -8,7 +8,7 @@
 #ifndef _LGE_RESOURCE_LOADER_H_
 #define _LGE_RESOURCE_LOADER_H_
 
-#include "lge/core/resource/Resource.h"
+#include "lge/core/resource/AbstractResource.h"
 
 #include <stdio.h>
 #include <string>
@@ -66,7 +66,7 @@ public:
 	{
 		// Try to get the resource from the cache
 		lge::log::debug("ResourceLoader::load", "Loading resource \"%s\"", filename.c_str());
-		int hash = Resource<T>::hash(filename);
+		int hash = AbstractResource<T>::hash(filename);
 		ResourceContainer::iterator iter = resources.find(hash);
 		if (iter != resources.end()) {
 			iter->second.usages++;
@@ -101,7 +101,7 @@ public:
 	template<typename T>
 	bool release(const T& resource)
 	{
-		int hash = Resource<T>::hash(resource.getFilename());
+		int hash = AbstractResource<T>::hash(resource.getFilename());
 		ResourceContainer::iterator iter = resources.find(hash);
 		if (iter != resources.end()) {
 			lge::log::debug("ResourceLoader::release",
@@ -136,7 +136,7 @@ public:
 	template<typename T>
 	int currentUsages(const T& resource) const
 	{
-		int hash = Resource<T>::hash(resource.getFilename());
+		int hash = AbstractResource<T>::hash(resource.getFilename());
 		ResourceContainer::const_iterator iter = resources.find(hash);
 		if (iter == resources.end()) {
 			return 0;
@@ -147,10 +147,10 @@ public:
 private:
 	struct ResourceEntry
 	{
-		IResource* ptr;
+		Resource* ptr;
 		int usages;
 		
-		ResourceEntry(IResource* const ptr, int usages)
+		ResourceEntry(Resource* const ptr, int usages)
 				: ptr(ptr), usages(usages) {}
 	};
 

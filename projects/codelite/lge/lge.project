@@ -97,13 +97,13 @@
     <File Name="../../../src/lge/core/Game.h"/>
     <VirtualDirectory Name="resource">
       <File Name="../../../src/lge/core/resource/ResourceLoader.h"/>
-      <File Name="../../../src/lge/core/resource/Resource.h"/>
       <File Name="../../../src/lge/core/resource/ImageResource.h"/>
       <File Name="../../../src/lge/core/resource/ImageResource.cpp"/>
       <File Name="../../../src/lge/core/resource/ResourceLoader.cpp"/>
-      <File Name="../../../src/lge/core/resource/IResource.h"/>
       <File Name="../../../src/lge/core/resource/SpriteResource.h"/>
       <File Name="../../../src/lge/core/resource/SpriteResource.cpp"/>
+      <File Name="../../../src/lge/core/resource/AbstractResource.h"/>
+      <File Name="../../../src/lge/core/resource/Resource.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="scene">
       <File Name="../../../src/lge/core/scene/Scene.h"/>

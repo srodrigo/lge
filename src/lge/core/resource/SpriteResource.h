@@ -8,7 +8,7 @@
 #ifndef _LGE_IMAGE_RESOURCE_H_
 #define _LGE_IMAGE_RESOURCE_H_
 
-#include "lge/core/resource/Resource.h"
+#include "lge/core/resource/AbstractResource.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -25,14 +25,14 @@ namespace lge
  * 
  * @author Sergio Rodrigo
  */
-class SpriteResource : public Resource<sf::Sprite>
+class SpriteResource : public AbstractResource<sf::Sprite>
 {
 public:
 	explicit SpriteResource(const std::string& filename)
-			: Resource(filename) {}
+			: AbstractResource(filename) {}
 	
 	explicit SpriteResource(const std::string& filename, bool releaseResource)
-			: Resource(filename, releaseResource) {}
+			: AbstractResource(filename, releaseResource) {}
 	
 	virtual ~SpriteResource();
 	
@@ -59,7 +59,7 @@ public:
 		
 protected:
 	SpriteResource(const std::string& filename, sf::Sprite* const resource)
-			: Resource(filename, resource) {}
+			: AbstractResource(filename, resource) {}
 	
 	SpriteResource& operator=(const SpriteResource& res);
 	
